@@ -1,5 +1,11 @@
 {
   "pages":[
+    
+    "pages/home/home",
+    "pages/transfer/transfer",
+    "pages/payMoney/payMoney",
+    "pages/collectMoney/collectMoney",
+    
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs"

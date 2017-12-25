@@ -1,0 +1,33 @@
+<!--pages/home/home.wxml-->
+
+
+<view style='wdith:100%;padding:0 30rpx;box-sizing:border-box;margin-top:20rpx;font-weigth:bold;border-left:5px solid #000;'>余额<text style='margin-left:50rpx;color:#fff;background:#000;padding:0 5rpx;border-radius:10rpx;float:right'>刷新余额</text></view>
+<view class='balance'>{{balance}}</view>
+
+<view class='menu'>
+  <view class='menu_content'>
+    <view class='menu_item menu_item1' bindtap='gotoCollect' style='margin-right:30rpx;'><image src='../img/get.png' style='width:60rpx;height:60rpx;margin-bottom:20rpx;'></image>收款</view>
+    <view class='menu_item menu_item2' bindtap='payMoney'><image src='../img/give.png' style='width:64rpx;height:60rpx;margin-bottom:20rpx;'></image>付款</view>
+  </view>
+</view>
+<view class='menu menu1'>
+  <view class='menu_content'>
+    <view class='menu_item menu_item3' bindtap='gotoTransfer' style='margin-right:30rpx;'><image src='../img/transfer.png' style='width:60rpx;height:60rpx;margin-bottom:20rpx;' ></image>转账</view>
+    <view class='menu_item menu_item4'><image src='../img/history.png' style='width:60rpx;height:60rpx;margin-bottom:20rpx;'></image>交易记录</view>
+  </view>
+</view>
+<view class='title'>
+  <image src='../img/card1.png' style='width:50rpx;height:50rpx; margin-right:20rpx;'></image>
+  <text>账户</text>
+</view>
+<view class='card'>
+  <view class='card_wrap'>
+    <view class='card_img'>
+      <image src='../img/card.png' class='img'></image>
+    </view>
+    <view class='address'>
+      <text>{{address}}</text>
+    </view>
+  </view>
+  <text class='copy' bindtap='copy'>复制</text>
+</view>

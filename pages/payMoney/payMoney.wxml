@@ -1,0 +1,17 @@
+<!--pages/payMoney/payMoney.wxml-->
+<view class='container'>
+  <view class='card'>
+    <view class='to'>
+      收款方
+      <view class='yuan yuan1'></view>
+      <view class='yuan yuan2'></view>
+    </view>
+    <view class='add'>
+       <text class='address'>9c7fc7fe1150cc800f8dbc95e07004ef04f2b5e9</text>
+    </view>
+  </view>
+  <text style='margin-top:50rpx;'>付款金额</text>
+  <text class='money'>100.00</text>
+
+  <view class='btn'>确认支付</view>
+</view>

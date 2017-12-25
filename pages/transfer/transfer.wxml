@@ -1,0 +1,16 @@
+<!--pages/transfer/transfer.wxml-->
+<view class='content'>
+  <view class='input_group group'>
+    <text>账户 :</text>
+    <input class='input' placeholder='请输入对方账户' style='padding-right:50rpx;box-sizing:border-box;'></input>
+    <view class='img' bindtap='scan'>
+      <image src='../img/scan.png'></image>
+    </view>
+  </view>
+  <view class='input_group'>
+    <text>金额 :</text>
+    <input class='input' placeholder='请输入转账金额'></input>
+  </view>
+</view>
+<view class='btn'>确定支付</view>
+

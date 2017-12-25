@@ -14,3 +14,29 @@
 .attention text{
   display: block;
 }
+.input_group{
+  width: 600rpx;
+  height: 80rpx;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.label{
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: left;
+}
+.pwd{
+  flex: 1;
+  height: 80rpx;
+}
+.btn{
+  width: 600rpx;
+  height: 80rpx;
+  margin-top: 50rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #FF9900;
+  border-radius: 20rpx;
+  color: #fff;
+}

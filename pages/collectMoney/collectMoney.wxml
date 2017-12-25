@@ -1,0 +1,18 @@
+<!--pages/main/index.wxml-->
+<view class="container-box">
+    <view class="img-box">
+        <image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
+    </view>
+          
+    <form bindsubmit="formSubmit">
+       <view class="input-row">
+            <label>金额</label>
+            <input name="money" type="text" bindinput='getValue'  placeholder="0"/>
+        </view>
+        <button formType="submit" class="mybtn" type="primary">生成收款码</button>
+    </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas  style="width: 686rpx;height: 686rpx;background:#FF8201;" canvas-id="mycanvas"/>
+</view>
