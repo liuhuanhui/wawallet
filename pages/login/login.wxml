@@ -1,0 +1,8 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <view class='wallet_title'>注册！</view>
+  <view class='attention'>
+    <text>1.务必牢记此密码,此密码是你的交易密码</text>
+    <text>2.密码强度：6位以上</text>
+  </view>
+</view>

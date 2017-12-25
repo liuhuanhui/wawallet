@@ -1,0 +1,16 @@
+/* pages/login/login.wxss */
+.wallet_title{
+  color: #FF9900;
+  font-size: 100rpx;
+  font-weight: bold;
+}
+.attention{
+  width: 100%;
+  text-align: left;
+  padding: 30rpx 100rpx;
+  box-sizing: border-box;
+  color:red;
+}
+.attention text{
+  display: block;
+}
