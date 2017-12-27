@@ -8,6 +8,11 @@ Page({
     pwd:'',
     repwd:''
   },
+  gotoLogin:function(){
+    wx.navigateTo({
+      url: '../olduser/olduser',
+    })
+  },
   getValue:function(e){
 
     var typee = e.currentTarget.dataset.type;
@@ -42,9 +47,41 @@ Page({
       })
     }else{
       //提交表单
-      wx.setStorageSync("address", "0x9c7fc7fe1150cc800f8dbc95e07004ef04f2b5e9");
-      wx.redirectTo({
-        url: '../home/home',
+      var _this = this;
+      wx.showLoading({
+        title: '',
+      })
+      wx.request({
+        url: getApp().globalData.baseUrl+'/createAccount',
+        method:'POST',
+        data:{
+          password:_this.data.pwd
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        success:function(res){
+          console.log(res.data);
+          if(res.data.status){
+            wx.showToast({
+              title: '注册成功',
+            })
+            setTimeout(function(){
+              //console.log(res.data.result)
+              wx.setStorageSync('address', res.data.address);
+              console.log(wx.getStorageSync('address'));
+              wx.hideLoading();
+              wx.reLaunch({
+                url: '../home/home',
+              })
+            },1000)
+          }else{
+            wx.hideLoading();
+            wx.showToast({
+              title: '注册失败',
+            })
+          }
+        }
       })
     }
   },

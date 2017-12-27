@@ -1,6 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
+    var address = wx.getStorageSync('address');
+    console.log("address:"+address);
+    if(address!=''){
+      wx.reLaunch({
+        url: 'pages/home/home',
+      })
+    }else{
+      wx.reLaunch({
+        url: 'pages/login/login',
+      })
+    }
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -34,6 +46,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    //baseUrl:'http://218.245.64.136:3000/web3'
+    baseUrl:'http://172.18.114.71:3000/web3'
   }
 })

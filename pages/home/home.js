@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address:'9c7fc7fe1150cc800f8dbc95e07004ef04f2b5e9',
-    balance:'5462342.4348'
+    address:'无',
+    balance:'0'
   },
 
   /**
@@ -31,9 +31,9 @@ Page({
   payMoney:function(){
     wx.scanCode({
       success:function(res){
-        console.log(res.result)
+        //console.log(res.result)
         wx.navigateTo({
-          url: '../payMoney/payMoney',
+          url: '../payMoney/payMoney?result='+res.result,
         })
       }
     })
@@ -43,8 +43,58 @@ Page({
       url: '../transfer/transfer',
     })
   },
+  fresh:function(){
+    var _this = this;
+    wx.showLoading({
+      title: '',
+    })
+    wx.request({
+      url: getApp().globalData.baseUrl + '/getBalance',
+
+      data: {
+        address: _this.data.address
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        wx.hideLoading();
+        _this.setData({
+          balance: res.data.balance
+        })
+      }
+    })
+  },
+  gotoHis:function(){
+    wx.navigateTo({
+      url: '../history/history',
+    })
+  },
   onLoad: function (options) {
-  
+    var address = wx.getStorageSync('address');
+    console.log(address);
+    this.setData({
+      address:address
+    })
+    var _this = this;
+    setTimeout(function(){
+      //获取余额
+      wx.request({
+        url: getApp().globalData.baseUrl + '/getBalance',
+        
+        data: {
+          address: _this.data.address
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        success: function (res) {
+          _this.setData({
+            balance:res.data.balance
+          })
+        }
+      })
+    },50)
   },
 
   /**

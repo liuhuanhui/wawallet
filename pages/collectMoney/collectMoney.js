@@ -7,14 +7,19 @@ Page({
     amount:'0',
   },
   onLoad: function (options) {
+    this.setData({
+      address:wx.getStorageSync('address')
+    })
+
     // 页面初始化 options为页面跳转所带来的参数
     var size = this.setCanvasSize();//动态设置画布大小
-    var address = wx.getStorageInfoSync('address');
+    var address = wx.getStorageSync('address');
     console.log(address);
     this.setData({
       address:address
     })
     var initUrl = this.data.address+'+'+this.data.amount;
+    console.log(initUrl);
     this.createQrCode(initUrl, "mycanvas", size.w, size.h);
   },
   onReady: function () {

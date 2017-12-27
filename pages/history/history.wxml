@@ -1,0 +1,46 @@
+<!--pages/history/history.wxml-->
+<view class='title'>
+  <picker mode="date" value="{{beginDate}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChangeStart">
+    <view class="picker">
+      {{beginDate}}至
+    </view>
+  </picker>
+  <picker mode="date" value="{{endDate}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChangeEnd">
+    <view class="picker">
+      {{endDate}}
+    </view>
+  </picker>
+  <view class='picker' style='float:right;' bindtap='changeType'>{{state}}</view>
+</view>
+<scroll-view bindscrolltolower="nextPage" class='his' scroll-y='true' lower-threshold='1' style='height:{{height}}px;'>
+  <view class='item' wx:for="{{items}}" wx:>
+    <view class='time'>
+      <view class='beginend begin'>交易：{{item.createTime}}</view>
+      <view class='beginend end'>确认：{{item.updateTime}}</view>
+    </view>
+    <view class='content'>
+      <view class='a'>
+      <image src='../img/from.png'></image>
+      <text class="{{item.from!=address?'address':'address1'}}">{{item.from}}</text>
+    </view>
+    <view class='a'>
+      <block wx:if='{{item.updateTime != ""}}'>
+          <image src='../img/success.png'></image>
+          <text class='createTime money'>交易金额</text>
+          <text class='createTime money1'>{{item.value}}</text>
+      </block>
+      <block wx:else>
+          <image src='../img/fail.png'></image>
+          <text class='createTime money'>交易金额</text>
+          <text class='createTime money1'>{{item.value}}</text>
+      </block>
+     
+    </view>
+    <view class='a'>
+      <image src='../img/to.png'></image>
+      <text class="{{item.to!=address?'address':'address1'}}">{{item.to}}</text>
+    </view>
+    </view>
+    
+  </view>
+</scroll-view>

@@ -8,7 +8,7 @@
 .money{
   font-size: 80rpx;
   font-weight: bold;
-  color: #00DB4B;
+  color: #FF7F24;
 }
 .card{
   width: 90%;
@@ -16,7 +16,7 @@
 .to{
   width: 100%;
   height: 100rpx;
-  background: #00DB4B;
+  background: #FF7F24;
   border-bottom: 2px dotted #fff;
   position: relative;
   color: #fff;
@@ -27,7 +27,7 @@
 .add{
   width: 100%;
   height: 200rpx;
-  background:  #00DB4B;
+  background:  #FF7F24;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,5 +54,5 @@
   line-height: 80rpx;
   border-radius: 10rpx;
   margin-top: 150rpx;
-  background: #00B43E;
+  background: #FF7F24;
 }

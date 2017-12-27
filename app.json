@@ -1,12 +1,18 @@
 {
   "pages":[
+    "pages/login/login",
+    "pages/olduser/olduser",
+    
+    "pages/history/history",
+    
+    "pages/password/password",
     
     "pages/home/home",
     "pages/transfer/transfer",
     "pages/payMoney/payMoney",
     "pages/collectMoney/collectMoney",
     
-    "pages/login/login",
+    
     "pages/index/index",
     "pages/logs/logs"
   ],

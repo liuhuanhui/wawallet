@@ -1,0 +1,17 @@
+<!--pages/olduser/olduser.wxml-->
+<view class='title'>登录！</view>
+<view class='input_group'>
+  <view>
+    <image class='a' src='../img/user.png'></image>
+    <input value='{{address}}' bindinput='getAddress' type='text' style='padding-right:50rpx;' placeholder='请输入账户地址'></input>
+    <image class='zhantie' src='../img/zt.png' bindtap='getCopyText'></image>
+  </view> 
+</view>
+<view class='input_group'>
+  <view>
+    <image class='a' src='../img/pwd.png'></image>
+    <input bindinput='getPassword' type='password' placeholder='请输入密码'></input>
+  </view> 
+</view>
+
+<view class='submit' bindtap='submit'>登录</view>

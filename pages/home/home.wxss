@@ -41,7 +41,7 @@
   width: 100%;
   height: 80rpx;
   padding: 0 30rpx;
-  font-size: 70rpx;
+  font-size: 90rpx;
   font-weight: bold;box-sizing: border-box;
   line-height: 80rpx;
   color:#00DB4B;
