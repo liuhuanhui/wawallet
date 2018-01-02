@@ -16,7 +16,8 @@
   <view class='item' wx:for="{{items}}" wx:>
     <view class='time'>
       <view class='beginend begin'>交易：{{item.createTime}}</view>
-      <view class='beginend end'>确认：{{item.updateTime}}</view>
+      <view class='beginend end' wx:if='{{item.updateTime!=null}}'>确认：{{item.updateTime}}</view>
+      <view class='beginend end' wx:else>交易未确认</view>
     </view>
     <view class='content'>
       <view class='a'>
@@ -24,7 +25,7 @@
       <text class="{{item.from!=address?'address':'address1'}}">{{item.from}}</text>
     </view>
     <view class='a'>
-      <block wx:if='{{item.updateTime != ""}}'>
+      <block wx:if='{{item.updateTime != null}}'>
           <image src='../img/success.png'></image>
           <text class='createTime money'>交易金额</text>
           <text class='createTime money1'>{{item.value}}</text>

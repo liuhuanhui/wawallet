@@ -1,0 +1,111 @@
+/* pages/amountinput/amountinput.wxss */
+page{
+  background: #f1f1f1;
+}
+.title{
+  width: 100%;
+  height: 300rpx;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title text{
+  width: 80%;
+  text-align: center;
+  word-break: break-all;
+  color: #555;
+}
+.input_group{
+  height: 250rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  background: #fff;
+}
+.input_group text{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.input_group input{
+  width: 100%;
+  height: 170rpx;
+  font-size: 140rpx; 
+  padding: 15rpx 0;
+  box-sizing: border-box;
+}
+.btn{
+  width: 100%;
+  height: 80rpx;
+  margin-top: 100rpx;
+  padding: 0 30rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+.btn view{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background: #ff9900; 
+  border-radius: 15rpx;
+}
+.input_pwd{
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input_pwd .pwd{
+  width: 500rpx;
+  height: 250rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.pwd input{
+  height: 80rpx;
+  width: 100%;
+  border: 1px solid #eee;
+  border-left: 0;
+  border-right: 0;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.pwd .btns{
+  width: 100%;
+  height: 75rpx;
+  display: flex;
+  line-height: 80rpx;
+}
+.pwd .btns text{
+  flex: 1;
+  text-align: center;
+}
+.warn{
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 80rpx;
+  background: red;
+  top: 0;
+  z-index: 11;
+  padding: 0 30rpx;
+  line-height: 80rpx;
+  color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+.hide{
+  display: none;
+}

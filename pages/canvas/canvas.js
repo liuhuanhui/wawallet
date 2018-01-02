@@ -1,42 +1,27 @@
-// pages/transfer/transfer.js
+// pages/canvas/canvas.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
+  
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        height:getApp().globalData.height-135
-      })
-      var list = wx.getStorageSync('list');
-      this.setData({
-        list:list
-      })
+  
   },
-  gotoinputaddress:function(){
-    wx.navigateTo({
-      url: '../addressinput/addressinput',
-    })
-  },
-  gotoinput:function(e){
-    var address = e.currentTarget.dataset.address;
-    console.log(address);
-    wx.navigateTo({
-      url: '../amountinput/amountinput?address='+address,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
   
   },
+
   /**
    * 生命周期函数--监听页面显示
    */

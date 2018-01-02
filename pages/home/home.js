@@ -32,8 +32,11 @@ Page({
     wx.scanCode({
       success:function(res){
         //console.log(res.result)
+        var datas = res.result.split('+');
+        var address = datas[0];
+        var amount = datas[1];
         wx.navigateTo({
-          url: '../payMoney/payMoney?result='+res.result,
+          url: '../amountinput/amountinput?address='+address+'&amount='+amount,
         })
       }
     })
@@ -71,6 +74,9 @@ Page({
     })
   },
   onLoad: function (options) {
+    
+
+
     var address = wx.getStorageSync('address');
     console.log(address);
     this.setData({
@@ -96,7 +102,6 @@ Page({
       })
     },50)
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

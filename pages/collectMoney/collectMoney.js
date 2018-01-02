@@ -3,8 +3,12 @@ Page({
   data: {
     maskHidden: true,
     imagePath: '',
-    address: '0x9c7fc7fe1150cc800f8dbc95e07004ef04f2b5e9', //默认二维码生成文本,
+    address: '',
     amount:'0',
+    setValue:'setValue',
+    showAmount:false,
+    amount:'',
+    shezhi:'设置金额'
   },
   onLoad: function (options) {
     this.setData({
@@ -23,7 +27,7 @@ Page({
     this.createQrCode(initUrl, "mycanvas", size.w, size.h);
   },
   onReady: function () {
-  
+
   },
   onShow: function () {
 
@@ -55,9 +59,114 @@ Page({
   },
   createQrCode: function (url, canvasId, cavW, cavH) {
     //调用插件中的draw方法，绘制二维码图片
+    wx.showLoading({
+      title: '',
+    })
     QR.api.draw(url, canvasId, cavW, cavH);
-    setTimeout(() => { this.canvasToTempImage(); }, 1000);
-
+    setTimeout(() => { this.canvasToTempImage(); wx.hideLoading()}, 1000);
+  },
+  getAmountValue:function(e){
+    this.setData({
+      amount:e.detail.value
+    })
+  },
+  submitValue:function(){
+    if(this.data.amount==''){
+      wx.showToast({
+        title: '不能为空',
+        image:'../img/error.png'
+      })
+      return ;
+    }else if(isNaN(this.data.amount)){
+      wx.showToast({
+        title: '请输入数字',
+        image: '../img/error.png'
+      })
+      return;
+    }else if(this.data.amount.length>8){
+      wx.showToast({
+        title: '长度1-8之间',
+        image: '../img/error.png'
+      })
+      return;
+    }else if(parseFloat(this.data.amount)==0){
+      wx.showToast({
+        title: '请大于0',
+        image: '../img/error.png'
+      })
+      return ;
+    }
+    this.setData({
+      setValue: 'setValue',
+      shezhi:'取消金额',
+      showAmount:true
+    })
+    wx.setNavigationBarTitle({
+      title: '收款码'
+    });
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
+    })
+    //更新二维码
+    var size = this.setCanvasSize();
+    var initUrl = this.data.address + '+' + this.data.amount;
+    console.log(initUrl);
+    this.createQrCode(initUrl, "mycanvas", size.w, size.h);
+  },
+  setValue:function(){
+    if(this.data.showAmount){
+      //取消金额
+      this.setData({
+        amount:'0',
+        showAmount:false,
+        shezhi:'设置金额'
+      })
+      var size = this.setCanvasSize();
+      var initUrl = this.data.address + '+' + this.data.amount;
+      console.log(initUrl);
+      this.createQrCode(initUrl, "mycanvas", size.w, size.h);
+      return ;
+    }
+    this.setData({
+      setValue:'setValue show'
+    })
+    wx.setNavigationBarTitle({
+      title:'添加金额'
+    });
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
+    })
+    //更新二维码
+  },
+  cancel:function(){
+    this.setData({
+      setValue: 'setValue'
+    })
+    wx.setNavigationBarTitle({
+      title: '收款码'
+    });
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
+    })
+  },
+  save:function(){
+    var _this = this;
+    wx.saveImageToPhotosAlbum({
+      filePath: _this.data.imagePath,
+      success:function(){
+        wx.showToast({
+          title: '已保存到相册',
+        })
+      },
+      fail:function(){
+        wx.showToast({
+          title: '保存失败',
+        })
+      }
+    })
   },
   //获取临时缓存照片路径，存入data中
   canvasToTempImage: function () {

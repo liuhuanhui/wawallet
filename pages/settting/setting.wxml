@@ -1,0 +1,5 @@
+<!--pages/settting/setting.wxml-->
+<view class='a' bindtap='quit' hover-class='a1'>
+  <text style='float:left;'>退出(确认已备份账户)</text>
+  <image src='../img/rarrow.png' style='width:50rpx;height:50rpx;float:right;'></image>
+</view>

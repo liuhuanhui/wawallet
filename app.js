@@ -2,7 +2,20 @@
 App({
   onLaunch: function () {
     var address = wx.getStorageSync('address');
-    console.log("address:"+address);
+      console.log("address:"+address);
+
+    try {
+      var res = wx.getSystemInfoSync()
+      var width = res.windowWidth;
+      var height = res.windowHeight;
+      this.globalData.width = width;
+      this.globalData.height = height;
+      this.globalData.left = -(750 - width / 2);
+    } catch (e) {
+      // Do something when catch error
+      console.log(e);
+    }
+
     if(address!=''){
       wx.reLaunch({
         url: 'pages/home/home',
@@ -12,42 +25,12 @@ App({
         url: 'pages/login/login',
       })
     }
+    
 
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
   globalData: {
     userInfo: null,
-    //baseUrl:'http://218.245.64.136:3000/web3'
-    baseUrl:'http://172.18.114.71:3000/web3'
+    baseUrl:'https://wallet.phicomm.com/webthree'
+    //baseUrl:'http://172.18.114.71:3000/web3'
   }
 })

@@ -40,3 +40,78 @@
   border-radius: 20rpx;
   color: #fff;
 }
+.add{
+  position: fixed;
+  width: 1500px;
+  height: 1500px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0px -2px 20px 0px rgba(0, 0, 0, 0.2);
+  top: 90%;
+  z-index: 10;
+  line-height: 100rpx;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s;
+}
+.title{
+  margin: 0 auto;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  text-decoration: underline;
+}
+.show{
+  top: 10%;
+}
+.input_groupa{
+  margin: 20rpx auto;
+  width: 650rpx;
+  height: 100rpx;
+  background: #fff;
+  border-radius: 50rpx;
+  padding: 25rpx;
+  box-sizing: border-box;
+
+   border: 1px solid #FF9900;
+}
+.input_groupa view{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  
+}
+.a{
+  width: 50rpx;
+  height: 50rpx;
+}
+.input_groupa input{
+  flex: 1;
+  height: 100%;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  text-align: left;
+  padding-left: 5rpx;
+  color: #333;
+}
+.zhantie{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50rpx;
+  height: 50rpx;
+}
+.login{
+  width: 650rpx;
+  margin: 0 auto;
+  height: 100rpx;
+  line-height: 98rpx;
+  text-decoration: none;
+  margin-top: 300rpx;
+  border-radius: 50rpx;
+  color: #FF9900;
+  border: 2rpx solid #FF9900;
+  box-sizing: border-box;
+}

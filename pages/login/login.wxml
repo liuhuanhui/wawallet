@@ -6,15 +6,32 @@
     <text>2.密码强度：6位以上</text>
     <text>3.注册成功后请务必备份好账户，以防丢失账户</text>
   </view>
-  
+
   <view class='input_group'>
     <label for='pwd' class='label'>密码 :</label>
     <input class='pwd' id='pwd' password='true' confirm-type='确认' bindinput='getValue' data-type='pwd' placeholder='请输入密码'></input>
   </view>
   <view class='input_group'>
     <label for='pwd' class='label'>重复密码 :</label>
-    <input class='pwd' id='pwd' password='true' confirm-type='确认'bindinput='getValue' data-type='repwd' placeholder='请确认密码'></input>
+    <input class='pwd' id='pwd' password='true' confirm-type='确认' bindinput='getValue' data-type='repwd' placeholder='请确认密码'></input>
   </view>
   <view class='btn' bindtap='submit'>确认</view>
-  <view class='btn' bindtap='gotoLogin'>已有账户 >></view>
+  <!-- <view class='btn' bindtap='gotoLogin'>已有账户 >></view>-->
+</view>
+<view class='{{addClass}}' style='left:{{left}}px'>
+  <view class='title'  bindtap='{{bindtapFunc}}'>{{bindtaptext}}</view>
+  <view class='input_groupa' style='margin-top:200rpx;'>
+    <view>
+      <image class='a' src='../img/user.png'></image>
+      <input value='{{address}}' bindinput='getAddress' type='text' style='padding-right:50rpx;' placeholder='请输入账户地址'></input>
+      <image class='zhantie' src='../img/zt.png' bindtap='getCopyText'></image>
+    </view>
+  </view>
+  <view class='input_groupa'>
+    <view>
+      <image class='a' src='../img/pwd.png'></image>
+      <input bindinput='getPassword' type='password' placeholder='请输入密码'></input>
+    </view>
+  </view>
+  <view class='login' bindtap='login'>登录</view>
 </view>

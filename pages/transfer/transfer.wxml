@@ -1,16 +1,14 @@
 <!--pages/transfer/transfer.wxml-->
-<view class='content'>
-  <view class='input_group group'>
-    <text>账户 :</text>
-    <input class='input' value='{{address}}' placeholder='请输入对方账户' bindinput='getAddress' style='padding-right:50rpx;box-sizing:border-box;'></input>
-    <view class='img' bindtap='scan'>
-      <image src='../img/scan.png'></image>
-    </view>
-  </view>
-  <view class='input_group'>
-    <text>金额 :</text>
-    <input class='input' value='{{amount}}' bindinput='getAmount' placeholder='请输入转账金额'></input>
-  </view>
+<view class='input' bindtap='gotoinputaddress' hover-class='input1'>
+ <image src='../img/input.png' style='width:100rpx;height:100rpx;margin-right:30rpx;'></image> 
+ <text>输入收款地址</text>
 </view>
-<view class='btn' bindtap='submit'>确定支付</view>
+<view class='his_title'>最近转账</view>
+<scroll-view scroll-y='true' class='latest' style='height:{{height}}px'>
+  <view wx:for='{{list}}' class='item' bindtap='gotoinput' data-address='{{item}}' hover-class='input1'>
+    <image src='../img/his_acc.png' style='width:100rpx;height:100rpx;margin-right:30rpx;'></image>
+    <text>{{item}}</text>
+  </view>
+</scroll-view>
+
 

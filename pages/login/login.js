@@ -6,11 +6,114 @@ Page({
    */
   data: {
     pwd:'',
-    repwd:''
+    repwd:'',
+    left:'',
+    addClass:'add',
+    bindtapFunc:'gotoLogin',
+    bindtaptext:'已有账户',
+    address:'',
+    pwd:''
+  }, 
+  login: function () {
+    var _this = this;
+    if (this.data.address == '' || this.data.pwd == '') {
+      wx.showToast({
+        title: '不能为空',
+        image: '../img/error.png'
+      })
+    } else {
+      wx.showLoading({
+        title: '验证账户和密码',
+      })
+      wx.request({
+        url: getApp().globalData.baseUrl + '/isExit',
+        method: 'POST',
+        data: {
+          to: _this.data.address
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        success: function (res) {
+
+          if (!res.data) {
+            //账户存在
+            //验证密码
+            wx.request({
+              url: getApp().globalData.baseUrl + '/verifyPwd',
+              method: 'POST',
+              data: {
+                address: _this.data.address,
+                password: _this.data.pwd
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+              },
+              success: function (res) {
+                if (res.data.status) {
+                  //密码正确
+                  wx.hideLoading();
+                  wx.setStorageSync('address', _this.data.address);
+                  wx.reLaunch({
+                    url: '../home/home',
+                  })
+                } else {
+                  wx.hideLoading();
+                  wx.showToast({
+                    title: '密码错误',
+                    image: '../img/error.png'
+                  })
+                }
+              }
+            })
+          } else {
+            //账户不存在
+            wx.hideLoading();
+            wx.showToast({
+              title: '账户不存在',
+              image: '../img/error.png'
+            })
+          }
+        }
+      })
+    }
+
+  },
+  getCopyText:function(){
+    var _this = this;
+    wx.getClipboardData({
+      success:function(res){
+        _this.setData({
+          address:res.data
+        })
+      }
+    })
+  },
+  getAddress: function (e) {
+    this.setData({
+      address: e.detail.value
+    })
+  },
+  getPassword: function (e) {
+    this.setData({
+      pwd: e.detail.value
+    })
   },
   gotoLogin:function(){
-    wx.navigateTo({
-      url: '../olduser/olduser',
+    //wx.navigateTo({
+    //  url: '../olduser/olduser',
+    //})
+    this.setData({
+      addClass:'add show',
+      bindtapFunc:'cancelLogin',
+      bindtaptext:'返回'
+    })
+  },
+  cancelLogin:function(){
+    this.setData({
+      addClass: 'add',
+      bindtapFunc: 'gotoLogin',
+      bindtaptext: '已有账户'
     })
   },
   getValue:function(e){
@@ -89,7 +192,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(getApp().globalData.left);
+    
+      this.setData({
+        left: getApp().globalData.left
+      })
+   
   },
 
   /**

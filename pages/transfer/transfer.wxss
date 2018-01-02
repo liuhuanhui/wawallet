@@ -1,50 +1,39 @@
 /* pages/transfer/transfer.wxss */
-.content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-.input_group{
-  width: 80%;
-  height: 80rpx;
-  border-bottom: 1px solid #ccc;
-  line-height: 80rpx;
-  display: flex;
-}
 .input{
-  flex: 1;
-  height: 100%;
-  padding-left: 10rpx;
+  height: 100px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 15px;
   box-sizing: border-box;
 }
-.btn{
+.input1{
+  background: #f1f1f1;
+}
+.his_title{
+  height: 35px;
   width: 100%;
-  height: 90rpx;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background: #FF8201;
-  color: #fff;
-  text-align: center;
-  line-height: 90rpx;
+  padding: 0 15px;
+  box-sizing: border-box;
+  line-height: 35px;
+  background: #f1f1f1;
 }
-.group{
-  position: relative;
+.latest{
+  width: 100%;
+  
 }
-.img{
-  width: 50rpx;
-  height: 80rpx;
-  position: absolute;
-  right: 0;
+.item{
+  height: 160rpx;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f1f1f1;
 }
-.img image{
-  width: 50rpx;
-  height: 50rpx;
+.item text{
+  flex: 1;
+  word-break: break-all;
+  color: #333;
 }

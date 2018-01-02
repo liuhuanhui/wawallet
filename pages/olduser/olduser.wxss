@@ -54,6 +54,6 @@
   color: #fff;
   text-align: center;
   line-height: 80rpx;
-  border-radius: 5rpx;
+  border-radius: 15rpx;
 }
 

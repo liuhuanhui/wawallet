@@ -1,8 +1,23 @@
 <!--pages/home/home.wxml-->
-
-
-<view style='wdith:100%;padding:0 30rpx;box-sizing:border-box;margin-top:20rpx;font-weigth:bold;border-left:5px solid #000;font-size:40rpx;'>橙子余额<text bindtap='fresh' style='margin-left:50rpx;color:#fff;background:#000;padding:0 5rpx;border-radius:10rpx;float:right'>刷新余额</text></view>
-<view class='balance'>{{balance}}</view>
+<view class='menu_bar'>
+  <view bindtap='payMoney'class='menu_bar_item'>
+    <image src='../img/scan1.png' style='width:50rpx;height:50rpx;'></image>
+    <text class='abc'>扫码</text>
+  </view>
+  <view class='menu_bar_item' bindtap='gotoCollect'>
+    <image src='../img/getb.png' style='width:50rpx;height:50rpx;'></image>
+    <text class='abc'>收款</text>
+  </view>
+  <view bindtap='gotoTransfer' class='menu_bar_item'>
+    <image src='../img/transb.png' style='width:50rpx;height:50rpx;'></image>
+    <text class='abc'>转账</text>
+  </view>
+  <view bindtap='gotoHis' class='menu_bar_item'>
+    <image src='../img/hisb.png' style='width:50rpx;height:50rpx;'></image>
+    <text class='abc'>记录</text>
+  </view>
+</view>
+<!--
 
 <view class='menu'>
   <view class='menu_content'>
@@ -15,19 +30,30 @@
     <view class='menu_item menu_item3' bindtap='gotoTransfer' style='margin-right:30rpx;'><image src='../img/transfer.png' style='width:60rpx;height:60rpx;margin-bottom:20rpx;' ></image>转账</view>
     <view bindtap='gotoHis' class='menu_item menu_item4'><image src='../img/history.png' style='width:60rpx;height:60rpx;margin-bottom:20rpx;'></image>交易记录</view>
   </view>
-</view>
+</view>-->
 <view class='title'>
   <image src='../img/card1.png' style='width:50rpx;height:50rpx; margin-right:20rpx;'></image>
-  <text>橙子账户</text>
+  <text>橙币账户</text>
 </view>
 <view class='card'>
-  <view class='card_wrap'>
-    <view class='card_img'>
-      <image src='../img/card.png' class='img'></image>
+  <view class='aaa'>
+  
+    <view class='card_wrap'>
+      <view class='card_img'>
+        <image src='../img/card.png' class='img'></image>
+      </view>
+      <view class='address'>
+        <text>{{address}}</text>
+      </view>
     </view>
-    <view class='address'>
-      <text>{{address}}</text>
+    <view style='width:100%;height:1px;background:#fff;'></view>
+    <view class='balance_info'>
+      <view class='a1'>
+        <text style='float:left;font-weight:bold'>余额</text>
+        <text style='float:right;margin-left:30rpx;border:1px solid #fff;border-radius:10rpx;font-size:26rpx;padding:0 10rpx;' bindtap='copy'>复制账户</text>
+        <text style='float:right;border:1px solid #fff;border-radius:10rpx;font-size:26rpx;padding:0 10rpx;' bindtap='fresh'>刷新余额</text>
+      </view>
+      <view class='a2'><text>{{balance}}</text></view>
     </view>
   </view>
-  <text class='copy' bindtap='copy'>复制</text>
 </view>
